@@ -1,5 +1,3 @@
-package skeletonCodeAssgnmt2;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
@@ -10,14 +8,16 @@ import java.util.concurrent.CountDownLatch;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class WordPanel extends JPanel implements Runnable {
+public class WordPanel extends JPanel implements Runnable 
+{
 		public static volatile boolean done;
 		private WordRecord[] words;
 		private int noWords;
 		private int maxY;
 
 		
-		public void paintComponent(Graphics g) {
+		public void paintComponent(Graphics g) 
+		{
 		    int width = getWidth();
 		    int height = getHeight();
 		    g.clearRect(0,0,width,height);
@@ -28,22 +28,25 @@ public class WordPanel extends JPanel implements Runnable {
 		    g.setFont(new Font("Helvetica", Font.PLAIN, 26));
 		   //draw the words
 		   //animation must be added 
-		    for (int i=0;i<noWords;i++){	    	
+		    for (int i=0;i<noWords;i++)
+		    {	    	
 		    	//g.drawString(words[i].getWord(),words[i].getX(),words[i].getY());	
 		    	g.drawString(words[i].getWord(),words[i].getX(),words[i].getY()+20);  //y-offset for skeleton so that you can see the words	
 		    }
 		   
 		  }
 		
-		WordPanel(WordRecord[] words, int maxY) {
-			this.words=words; //will this work?
+		WordPanel(WordRecord[] words, int maxY) 
+		{
+			this.words=words;
 			noWords = words.length;
 			done=false;
 			this.maxY=maxY;		
 		}
 		
-		public void run() {
-			//add in code to animate this
+		public void run() 
+		{
+			repaint();
 		}
 
 	}
